@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DotNetRevit.Utilities.WPF;
 
 namespace DotNetRevit.Scripts.MainTab.Project.ProjectTools2_Stack
 {
@@ -39,7 +40,9 @@ namespace DotNetRevit.Scripts.MainTab.Project.ProjectTools2_Stack
                     return Result.Cancelled;
                 }
 
-                TaskDialog.Show("Get Central Path", centralPath);
+                Query queryWindow = new Query("Get RVT Info");
+                queryWindow.Show();
+                queryWindow.InfoBox.Text = centralPath;
             }
 
             return Result.Succeeded;
