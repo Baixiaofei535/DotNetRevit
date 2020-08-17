@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AdWindows, Version=2016.11.4.0, Culture=neutral, processorArchitecture=MSIL">
@@ -70,12 +72,18 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\MainTab\Project\ProjectTools2_Stack\GetCentralPath\b_GetCentralPath.cs" />
     <Compile Include="Scripts\MainTab\Project\ProjectTools2_Stack\GetCentralPath\GetCentralPath.cs" />
+    <Compile Include="Scripts\MainTab\Project\ProjectTools2_Stack\GetRVTInfo\b_GetRvtInfo.cs" />
+    <Compile Include="Scripts\MainTab\Project\ProjectTools2_Stack\GetRVTInfo\GetRvtInfo.cs" />
+    <Compile Include="Scripts\MainTab\Project\ProjectTools2_Stack\LoadMoreTypes\b_LoadMoreTypes.cs" />
+    <Compile Include="Scripts\MainTab\Project\ProjectTools2_Stack\LoadMoreTypes\LoadMoreTypes.cs" />
     <Compile Include="Utilities\WPF\QueryWindow\Query.xaml.cs">
       <DependentUpon>Query.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DotNetRevit.addin" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -84,8 +92,6 @@
     <Folder Include="Scripts\MainTab\Drawing\" />
     <Folder Include="Scripts\MainTab\Modify\" />
     <Folder Include="Scripts\MainTab\Project\Cycle_Family_Types\" />
-    <Folder Include="Scripts\MainTab\Project\ProjectTools2_Stack\GetRVT Info\" />
-    <Folder Include="Scripts\MainTab\Project\ProjectTools2_Stack\LoadMoreTypes\" />
     <Folder Include="Scripts\MainTab\Project\ProjectTools_Stack\" />
     <Folder Include="Scripts\MainTab\Project\Wipe_DropDown\" />
     <Folder Include="Scripts\MainTab\Selection\" />
@@ -115,6 +121,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Utilities\WPF\QueryWindow\UI\Normalise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Scripts\MainTab\Project\ProjectTools2_Stack\GetCentralPath\b_GetCentralPath.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Scripts\MainTab\Project\ProjectTools2_Stack\GetRVTInfo\b_GetRvtInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Scripts\MainTab\Project\ProjectTools2_Stack\LoadMoreTypes\b_LoadMoreTypes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

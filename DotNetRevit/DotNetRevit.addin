@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<RevitAddIns>
+
+	<AddIn Type="Application">
+
+		<Name>DotNetRevit</Name>
+
+		<FullClassName>DotNetRevit.App</FullClassName>
+
+		<Text>PM Print</Text>
+
+		<Description>PyRevit Conversion to .Net Assembly</Description>
+
+		<VisibilityMode>AlwaysVisible</VisibilityMode>
+
+		<Assembly>DotNetRevit.dll</Assembly>
+
+		<AddInId>CC526468-D11C-478E-A937-8AF49D8FE868</AddInId>
+
+		<VendorId>Coolicky</VendorId>
+
+		<VendorDescription>Coolicky, https://github.com/Coolicky </VendorDescription>
+	</AddIn>
+</RevitAddIns>

@@ -10,7 +10,7 @@ namespace DotNetRevit.Scripts.MainTab.Project.ProjectTools2_Stack
 {
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
-    internal class GetCentralPath : IExternalCommand
+    public class GetCentralPath : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
