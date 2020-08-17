@@ -123,7 +123,7 @@
                 <Image x:Name="lockWindowImage"
                        Source="UI/Pin.png"
                        Width="20"
-                       Height="16" />
+                       Height="20" />
             </Button>
             <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
             <Button x:Name="copyButton"
@@ -136,7 +136,7 @@
                     Click="copyButton_Click">
                 <Image Source="UI/Copy.png"
                        Width="20"
-                       Height="16" />
+                       Height="20" />
             </Button>
             <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
             <Button x:Name="saveButton"
@@ -149,7 +149,7 @@
                     Click="saveButton_Click">
                 <Image Source="UI/Save.png"
                        Width="20"
-                       Height="16" />
+                       Height="20" />
             </Button>
             <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
             <Button x:Name="printButton"
@@ -162,7 +162,7 @@
                     Click="printButton_Click">
                 <Image Source="UI/Print.png"
                        Width="20"
-                       Height="16" />
+                       Height="20" />
             </Button>
             <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
             <Button x:Name="openHtml"
@@ -175,7 +175,7 @@
                     Click="openHtml_Click">
                 <Image Source="UI/OpenHTML.png"
                        Width="20"
-                       Height="16" />
+                       Height="20" />
             </Button>
             <!--#endregion-->
         </DockPanel>
