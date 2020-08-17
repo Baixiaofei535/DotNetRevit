@@ -1,0 +1,191 @@
+﻿<Window x:Class="DotNetRevit.Utilities.WPF.Query"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:DotNetRevit.Utilities.WPF"
+             mc:Ignorable="d"
+             Height="500" Width="800"
+             WindowStyle="None" BorderBrush="DarkGray" BorderThickness="1"
+             WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" SizeChanged="Resized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style TargetType="Rectangle" x:Key="Break">
+                <Setter Property="Width" Value="1" />
+                <Setter Property="Fill" Value="DarkGray" />
+                <Setter Property="Margin" Value="0,5" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel x:Name="RootWindow">
+        <DockPanel x:Name="TitleBar"
+                   DockPanel.Dock="Top"
+                   Height="32"
+                   Background="AliceBlue"
+                   MouseDown="TitleBar_MouseDown">
+            <!--#region Close, Min, Max-->
+            <Button x:Name="CloseButton"
+                    DockPanel.Dock="Right"
+                    Width="32"
+                    Click="CloseButton_Click"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Close">
+                <Image Source="UI/Close.png"
+                       Width="20"
+                       Height="20" />
+            </Button>
+            <Button x:Name="MaxButton"
+                    DockPanel.Dock="Right"
+                    Width="32"
+                    Click="MaxButton_Click"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Maximise">
+                <Image x:Name="maxButtonImage"
+                       Source="UI/Maximise.png"
+                       Width="20"
+                       Height="20" />
+            </Button>
+            <Button x:Name="MinButton"
+                    DockPanel.Dock="Right"
+                    HorizontalAlignment="Right"
+                    Width="32" Click="MinButton_Click"
+                    Margin="5,0,0,0"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Minimise">
+                <Image Source="UI/Minimise.png"
+                       Width="20"
+                       Height="20" />
+            </Button>
+            <!--#endregion-->
+            <!--#region Left Size-->
+            <Button x:Name="MainButton"
+                    DockPanel.Dock="Left"
+                    HorizontalAlignment="Left"
+                    Width="32" Click="MainButton_Click">
+                <Image Source="UI/Console.png"
+                       Width="20"
+                       Height="20" />
+            </Button>
+            <Button x:Name="Extend"
+                    DockPanel.Dock="Left"
+                    HorizontalAlignment="Left"
+                    Width="32"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Expand Window"
+                    Click="Extend_Click">
+                <Image Source="UI/Extend.png"
+                       x:Name="extendImage"
+                       Width="20"
+                       Height="20" />
+            </Button>
+            <Rectangle DockPanel.Dock="Left" Style="{StaticResource Break}" />
+            <TextBlock Text="Window Tittle"
+                       x:Name="Tittle"
+                       FontSize="14"
+                       VerticalAlignment="Center"
+                       Margin="10,0" />
+            <!--#endregion-->
+            <!--#region Rest-->
+            <!--Information-->
+            <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
+            <Button Margin="10,0"
+                    DockPanel.Dock="Right"
+                    x:Name="pluginVersionButton"
+                    Click="pluginVersionButton_Click"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Active User. Click to copy to clipboard">
+                <TextBlock Text="x.x.x.x"
+                           x:Name="pluginVersion"
+                           VerticalAlignment="Center" />
+            </Button>
+            <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
+            <Button Margin="10,0"
+                    DockPanel.Dock="Right"
+                    x:Name="userNameButton"
+                    Click="userNameButton_Click"
+                    ToolTipService.InitialShowDelay="1000" ToolTip="Version. Click to copy to clipboard">
+                <TextBlock Text="userName" x:Name="userName"  VerticalAlignment="Center" />
+            </Button>
+            <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
+            <!--Buttons-->
+            <Button x:Name="lockWindow"
+                    DockPanel.Dock="Right"
+                    Width="24"
+                    HorizontalAlignment="Right"
+                    Margin="2,0"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Keep on Top"
+                    Click="lockWindow_Click">
+                <Image x:Name="lockWindowImage"
+                       Source="UI/Pin.png"
+                       Width="20"
+                       Height="16" />
+            </Button>
+            <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
+            <Button x:Name="copyButton"
+                    DockPanel.Dock="Right"
+                    Width="24"
+                    HorizontalAlignment="Right"
+                    Margin="2,0"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Copy all Text"
+                    Click="copyButton_Click">
+                <Image Source="UI/Copy.png"
+                       Width="20"
+                       Height="16" />
+            </Button>
+            <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
+            <Button x:Name="saveButton"
+                    DockPanel.Dock="Right"
+                    Width="24"
+                    HorizontalAlignment="Right"
+                    Margin="2,0"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Save Contents"
+                    Click="saveButton_Click">
+                <Image Source="UI/Save.png"
+                       Width="20"
+                       Height="16" />
+            </Button>
+            <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
+            <Button x:Name="printButton"
+                    DockPanel.Dock="Right"
+                    Width="24"
+                    HorizontalAlignment="Right"
+                    Margin="2,0"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Print Contents"
+                    Click="printButton_Click">
+                <Image Source="UI/Print.png"
+                       Width="20"
+                       Height="16" />
+            </Button>
+            <Rectangle DockPanel.Dock="Right"  Style="{StaticResource Break}" />
+            <Button x:Name="openHtml"
+                    DockPanel.Dock="Right"
+                    Width="24"
+                    HorizontalAlignment="Right"
+                    Margin="2,0"
+                    ToolTipService.InitialShowDelay="1000"
+                    ToolTip="Open in Browser"
+                    Click="openHtml_Click">
+                <Image Source="UI/OpenHTML.png"
+                       Width="20"
+                       Height="16" />
+            </Button>
+            <!--#endregion-->
+        </DockPanel>
+        <Grid x:Name="info">
+            <Rectangle Height="1"
+                       VerticalAlignment="Top"
+                       Margin="0"
+                       Fill="DarkGray"
+                       Stroke="DarkGray" />
+            <TextBox x:Name="InfoBox" BorderThickness="0" Margin="0,10,0,0" />
+        </Grid>
+    </DockPanel>
+</Window>
